@@ -22,7 +22,9 @@ public class PlaneController : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Rotate(new Vector3(0, 0, -inputVertical * rotationSpeed * Time.deltaTime));
+        float rotationAngle = -inputVertical * rotationSpeed * Time.deltaTime;
+        transform.Rotate(new Vector3(0, 0, rotationAngle));
+        
 
         rb.velocity += transform.right * forwardAccelaration * Time.deltaTime;
         if (rb.velocity.sqrMagnitude > Mathf.Pow(maxSpeed, 2))
