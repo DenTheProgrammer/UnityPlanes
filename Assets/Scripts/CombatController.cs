@@ -21,10 +21,13 @@ public class CombatController : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time - lastShotTime >= timeBetweenShots)
+        if (Input.GetMouseButton(0) || Input.GetButton("Jump"))
         {
-            shooting = true;
-            lastShotTime = Time.time;
+            if (Time.time - lastShotTime >= timeBetweenShots)
+            {
+                shooting = true;
+                lastShotTime = Time.time;
+            }
         }
     }
 
